@@ -41,7 +41,7 @@ function getRandomQuote(){
 
 //console.log(getRandomQuote());
 
-return getRandomQuote;
+//return getRandomQuote;
 
 
 /***
@@ -50,25 +50,24 @@ return getRandomQuote;
 
 function printQuote(){
   var storeQuote = getRandomQuote;
-  var htmlString = '<p class="quote">' +  quotes.quote + '</p>',
-                    '<p class="source">' + quotes.source + '' 
-                    
-  if (quotes.citation = true) {
-   let htmlString = '<p class="quote">' A random quote </p>
-    <p class="source"> quote source 
-    <span class="citation"> quote citation </span>
-  }else if (quotes.year = true) {
-   let htmlString = '<p class="quote">' A random quote </p>
-    <p class="source"> quote source 
-    <span class="citation"> quote citation </span>
-    <span class="year"> quote year </span>
-  } else{
-    let htmlString = '<p class="quote">' +  quotes.quote + '</p>',
+  var output = "";
+  if (storeQuote != true) {
+    output += '<p class="quote">' +  quotes.quote + '</p>',
     '<p class="source">' + quotes.source + '</p>' 
+  }                    
+  if (quotes.citation === true) {
+   output +=  '<p class="quote">' + quotes.quote + '</p>'
+    '<p class="source">' + quotes.source + '</p>'
+    '<span class="citation">' + quotes.citation + '</span>'
+  } 
+  if (quotes.year === true) {
+    output += '<p class="quote">' + quotes.quote + '</p>'
+    '<p class="source">' + quotes.source + '</p>'
+    '<span class="citation">' + quotes.citation + '</span>'
+    '<span class="year">' + quotes.year + '</span>'
   };
 
-  
-}
+  document.getElementById('quote-box').innerHTML = printQuote;
 
 /***
  * click event listener for the print quote button
