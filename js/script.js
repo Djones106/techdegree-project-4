@@ -28,7 +28,7 @@ var quotes =[
   {quote: "I want adventure in the great wide somewhere. I want it more than I can tell. And for once it might be grand, to have someone understand, I want so much more than they have planned.", source: "Belle", citation: "Disney - Beauty and the Beast", year: "1991"}
 ]; 
 
-//console.log(quotes)
+//console.log(quotes)  //testing to see if quotes array displays
 /***
  * `getRandomQuote` function
 ***/
@@ -39,7 +39,7 @@ function getRandomQuote(){
 };
 
 
-//console.log(getRandomQuote());
+//console.log(getRandomQuote()); //testing random quote is displayed
 
 //return getRandomQuote;
 
@@ -48,22 +48,25 @@ function getRandomQuote(){
  * `printQuote` function
 ***/
 
-function printQuote(output){
-  var storeQuote = getRandomQuote;
-  var output = '<p class="quote">'  + storeQuote.quote + '</p>'
-  '<p class="source">' + storeQuote.source +  '</p>';
+function printQuote(){
+  var storeQuote = getRandomQuote();
+  let quote = '<p class="quote">  ${storeQuote.quote} </p>'
+  '<p class="source"> ${storeQuote.source} </p>';
 
-  if (storeQuote.citation === true) {
-   output =  '<p class="quote">'  + storeQuote.quote+  '</p>'
-    '<p class="source">'  + storeQuote.source +
-    '<span class="citation">' + storeQuote.citation +  '</span></p>'
+  if (storeQuote.citation == true) {
+   quote = '<p class="quote">  ${storeQuote.quote} </p>',
+    '<p class="source">  ${storeQuote.source} </p>',
+    '<span class="citation">  ${storeQuote.citation} </span>'
   } 
-  if (storeQuote.year === true) {
-    output = '<p class="quote">' + storeQuote.quote +  '</p>'
-    '<p class="source">'  + storeQuote.source +  
-    '<span class="citation">'  + storeQuote.citation +  '</span>'
-    '<span class="year">' + storeQuote.year +   '</span> </p>'
-  }
+   if (storeQuote.year == true){
+    quote =  '<p class="quote">${storeQuote.quote}</p>',
+    '<p class="source">  ${storeQuote.source} </p>', 
+    '<span class="citation">${storeQuote.citation}</span>',
+        '<span class="year">  ${storeQuote.year} </span>'
+     }
+
+     return quote;
+
 };
 
   document.getElementById('quote-box').innerHTML = printQuote;
