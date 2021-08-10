@@ -48,24 +48,23 @@ function getRandomQuote(){
  * `printQuote` function
 ***/
 
-function printQuote(){
+function printQuote(output){
   var storeQuote = getRandomQuote;
-  var output = "";
-  if (storeQuote != true) {
-    output += '<p class="quote">' +  quotes.quote + '</p>',
-    '<p class="source">' + quotes.source + '</p>' 
-  }                    
-  if (quotes.citation === true) {
-   output +=  '<p class="quote">' + quotes.quote + '</p>'
-    '<p class="source">' + quotes.source + '</p>'
-    '<span class="citation">' + quotes.citation + '</span>'
+  var output = '<p class="quote">'  + storeQuote.quote + '</p>'
+  '<p class="source">' + storeQuote.source +  '</p>';
+
+  if (storeQuote.citation === true) {
+   output =  '<p class="quote">'  + storeQuote.quote+  '</p>'
+    '<p class="source">'  + storeQuote.source +
+    '<span class="citation">' + storeQuote.citation +  '</span></p>'
   } 
-  if (quotes.year === true) {
-    output += '<p class="quote">' + quotes.quote + '</p>'
-    '<p class="source">' + quotes.source + '</p>'
-    '<span class="citation">' + quotes.citation + '</span>'
-    '<span class="year">' + quotes.year + '</span>'
-  };
+  if (storeQuote.year === true) {
+    output = '<p class="quote">' + storeQuote.quote +  '</p>'
+    '<p class="source">'  + storeQuote.source +  
+    '<span class="citation">'  + storeQuote.citation +  '</span>'
+    '<span class="year">' + storeQuote.year +   '</span> </p>'
+  }
+};
 
   document.getElementById('quote-box').innerHTML = printQuote;
 
