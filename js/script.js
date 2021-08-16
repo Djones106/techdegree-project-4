@@ -3,12 +3,9 @@ Treehouse Techdegree:
 Project 4 - Random Quote Generator in JavaScript
 *************************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://uboraacademy.slack.com
 
 /*** 
- * `quotes` array 
+ * Created a variable to hold the quotes I would like to display = `quotes` array 
 ***/
 var quotes =[
   {quote: "Venture outside your comfort zone. The rewards are worth it.", source: "Disney - Rapunzel", citation: "Disney - Tangled", year: "2010"},
@@ -30,7 +27,7 @@ var quotes =[
 
 //console.log(quotes)  //testing to see if quotes array displays
 /***
- * `getRandomQuote` function
+ * This function holds the random quote that is generated from the array `getRandomQuote` function
 ***/
 function getRandomQuote(){
   var randomQuote = quotes[Math.floor(Math.random() * quotes.length )];
@@ -41,11 +38,11 @@ function getRandomQuote(){
 
 //console.log(getRandomQuote()); //testing random quote is displayed
 
-//return getRandomQuote;
+
 
 
 /***
- * `printQuote` function
+ * The code below holds the `printQuote` function
 ***/
 
 function printQuote(){
@@ -53,20 +50,24 @@ function printQuote(){
   var quote = `<p class="quote">  ${storeQuote.quote} </p>
   <p class="source"> ${storeQuote.source} </p>`;
 
-  if (storeQuote.citation != true) {
+  if (storeQuote.citation !== true) {
    quote += `<span class="citation">  ${storeQuote.citation} </span>`
   } 
-   if (storeQuote.year != true){
+   if (storeQuote.year !== true){
     quote += `<span class="year">  ${storeQuote.year} </span>`
      }
     
-   
+   //To display quote string in the html
   document.getElementById('quote-box').innerHTML = quote;
  
-
 };
 
-console.log(printQuote)
+
+//used arrow function to loop quote
+setInterval(()=> {
+  printQuote();
+}, 5000);
+
   
 
 /***
