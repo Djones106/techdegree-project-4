@@ -65,9 +65,9 @@ function printQuote(){
 
 
 //used arrow function to loop quote
-// setInterval(()=> {
-//   printQuote();
-// }, 5000);
+setInterval(()=> {
+  printQuote();
+}, 5000);
 
   
 
