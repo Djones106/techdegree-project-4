@@ -7,7 +7,7 @@ Project 4 - Random Quote Generator in JavaScript
 /*** 
  * Created a variable to hold the quotes I would like to display = `quotes` array 
 ***/
-var quotes =[
+const quotes =[
   {quote: "Venture outside your comfort zone. The rewards are worth it.", source: "Disney - Rapunzel", citation: "Disney - Tangled", year: "2010"},
 
   {quote: "A little consideration, a little thought for others, makes all the difference.", source: "Eeyore", citation: "Disney - Winnie the Pooh", year: "1926"},
@@ -30,7 +30,7 @@ var quotes =[
  * This function holds the random quote that is generated from the array `getRandomQuote` function
 ***/
 function getRandomQuote(){
-  var randomQuote = quotes[Math.floor(Math.random() * quotes.length )];
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length )];
   return randomQuote;
   
 };
@@ -46,16 +46,17 @@ function getRandomQuote(){
 ***/
 
 function printQuote(){
-  var storeQuote = getRandomQuote();
-  var quote = `<p class="quote">  ${storeQuote.quote} </p>
-  <p class="source"> ${storeQuote.source} </p>`;
+  const storeQuote = getRandomQuote();
+  let quote = `<p class="quote">  ${storeQuote.quote}
+  <p class="source"> ${storeQuote.source}`;
 
-  if (storeQuote.citation !== true) {
+  if (storeQuote.citation) {
    quote += `<span class="citation">  ${storeQuote.citation} </span>`
   } 
-   if (storeQuote.year !== true){
+  
+   if (storeQuote.year){
     quote += `<span class="year">  ${storeQuote.year} </span>`
-     }
+         }
     
    //To display quote string in the html
   document.getElementById('quote-box').innerHTML = quote;
@@ -64,9 +65,9 @@ function printQuote(){
 
 
 //used arrow function to loop quote
-setInterval(()=> {
-  printQuote();
-}, 5000);
+// setInterval(()=> {
+//   printQuote();
+// }, 5000);
 
   
 
